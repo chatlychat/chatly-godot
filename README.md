@@ -59,7 +59,7 @@ godot --headless --path . --script tests/run_tests.gd
 ```
 
 64 tests, no network: the HTTP transport and the socket are injected fakes, and the assertions are on what the addon
-*sent* (the handshake carries `kind: "visitor"`, the socket token comes from the mint route, a second connect attempt
+_sent_ (the handshake carries `kind: "visitor"`, the socket token comes from the mint route, a second connect attempt
 mints again). The runner exits 1 on a failure, on an empty run, and on a suite that does not compile.
 
 ## Versions
