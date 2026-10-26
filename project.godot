@@ -1,0 +1,35 @@
+; The package root is itself a Godot project.
+;
+; Two reasons, and the second is the one that matters:
+;
+;  1. `addons/chatly/*.gd` resolves at `res://addons/chatly/...` here exactly
+;     as it will in a consumer's project, so the demo scene and the test suite
+;     exercise the SAME paths an integrator will.
+;  2. The suite can be run with nothing installed and nothing built:
+;       godot --headless --path packages/sdk-godot --script tests/run_tests.gd
+;     A second project for the tests would have had to duplicate the addon or
+;     symlink it, and a symlink is the kind of thing that works on one
+;     developer's machine.
+
+config_version=5
+
+[application]
+
+config/name="Chatly for Godot"
+config/description="Visitor chat client. See README.md."
+run/main_scene="res://demo/demo.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=960
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/chatly/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
